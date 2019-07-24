@@ -1,1 +1,1 @@
-A simple iOS app to enhance the experience of competitors at the Harvard University Science Olympiad Invitational.
+A simple iOS app intended to enhance the experience of competitors at the Harvard University Science Olympiad Invitational.
