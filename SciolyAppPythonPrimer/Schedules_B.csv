@@ -1,0 +1,25 @@
+﻿Events,Location,Trial,Impound_Location,Impound_Time,7:00 AM,8:15 AM,9:30 AM,10:45 AM,12:00 AM,1:15 PM,2:30 PM
+Anatomy & Physiology,A1,,,,,1,11,21,31,41,51
+Boomilever,A2,,,,,11,21,1,31,41,51
+Circuit Lab,A3,,,,,21,31,1,11,41,51
+Crime Busters,A4,,,,,31,41,1,11,21,51
+Density Lab,A5,,,,ALL,,,,,,
+Disease Detectives,A6,,,,ALL,,,,,,
+Dynamic Planet,A7,,,,,41,51,1,11,21,31
+EL Gliders,A8,,,,,51,1,11,21,31,41
+Experimental Design,A9,,,,,SS,ss,,,,
+Food Science,A10,,,,,SS,ss,,,,
+Fossils,A11,,,,,SS,ss,,,,
+Game On,A12,,,,,SS,ss,,,,
+Heredity,A13,,,,,1,11,21,31,41,51
+Machines,A14,,A43,7:00 AM,,11,21,1,31,41,51
+Meteorology,A15,,A45,7:15 AM,,SS,ss,,,,
+Mission Possible,A16,,A46,7:30 AM,,21,31,1,11,41,51
+Mousetrap Vehicle,A17,,A47,7:45 AM,,31,41,1,51,11,21
+Ornithology,A18,,,,,41,51,1,21,31,11
+Ping-Pong Parachute,A19,,,,,SS,,,,,
+Reach for the Stars,A20,,,,,51,1,11,31,21,41
+Road Scholar,A21,,,,,1,11,21,31,41,51
+Water Quality,A22,,,,,11,21,1,31,41,51
+"Write It, Do It",A23,,,,,21,31,1,51,41,11
+Data Analysis,A24,Yes,,,,31,21,11,51,1,41
