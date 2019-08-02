@@ -11,14 +11,13 @@ import os.log
 
 class Competitor: NSObject, NSCoding
 {
-    
     //MARK: Properties
     
     var division: String
-    var teamNumber: Int
-    var events: [String] = []
-    
-    //var tournamentInformation: TournamentInformation
+    var teamName: String
+    var teamNumber: String
+    var homeroom: String
+    var eventInformation: [[String]]
     
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in:.userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("competitor")
@@ -28,19 +27,21 @@ class Competitor: NSObject, NSCoding
     struct PropertyKey
     {
         static let division = "division"
+        static let teamName = "teamName"
         static let teamNumber = "teamNumber"
-        static let events = "events"
-        //static let tournamentInformation = "tournamentInformation"
+        static let homeroom = "homeroom"
+        static let eventInformation = "eventInformation"
     }
     
     //MARK: Initialization
     
-    init?(division: String, teamNumber: Int, events: [String])
+    init?(division: String, teamName: String, teamNumber: String, homeroom: String, eventInformation: [[String]])
     {
         self.division = division
+        self.teamName = teamName
         self.teamNumber = teamNumber
-        self.events = events
-        //self.tournamentInformation = tournamentInformation
+        self.homeroom = homeroom
+        self.eventInformation = eventInformation
     }
     
     
@@ -49,9 +50,10 @@ class Competitor: NSObject, NSCoding
     func encode(with aCoder: NSCoder)
     {
         aCoder.encode(division, forKey: PropertyKey.division)
+        aCoder.encode(teamName, forKey: PropertyKey.teamName)
         aCoder.encode(teamNumber, forKey: PropertyKey.teamNumber)
-        aCoder.encode(events, forKey: PropertyKey.events)
-        //aCoder.encode(tournamentInformation, forKey: PropertyKey.tournamentInformation)
+        aCoder.encode(homeroom, forKey: PropertyKey.homeroom)
+        aCoder.encode(eventInformation, forKey: PropertyKey.eventInformation)
     }
     
     required convenience init?(coder aDecoder: NSCoder)
@@ -61,13 +63,12 @@ class Competitor: NSObject, NSCoding
             return nil
         }
         
-        let teamNumber = aDecoder.decodeObject(forKey: PropertyKey.teamNumber) as! Int
+        let teamName = aDecoder.decodeObject(forKey: PropertyKey.teamName) as! String
+        let teamNumber = aDecoder.decodeObject(forKey: PropertyKey.teamNumber) as! String
+        let homeroom = aDecoder.decodeObject(forKey: PropertyKey.homeroom) as! String
+        let eventInformation = aDecoder.decodeObject(forKey: PropertyKey.eventInformation) as! [[String]]
         
-        let events = aDecoder.decodeObject(forKey: PropertyKey.events) as! [String]
-        
-        //let tournamentInformation = aDecoder.decodeObject(forKey: PropertyKey.tournamentInformation) as! TournamentInformation
-        
-        self.init(division: division, teamNumber: teamNumber, events: events)
+        self.init(division: division, teamName: teamName, teamNumber: teamNumber, homeroom: homeroom, eventInformation: eventInformation)
         
     }
     

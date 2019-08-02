@@ -23,12 +23,14 @@ class SetupTextFields: UITextField {
         //To apply border
         self.layer.borderWidth = 0.25
         self.layer.borderColor = UIColor.white.cgColor
-        self.layer.shadowOpacity = 1
-        self.layer.shadowRadius = 5.0
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 2.0
         self.layer.shadowOffset = CGSize(width: 0, height: 0.3)
         
         if (self.isUserInteractionEnabled == false) {
-            self.layer.shadowColor = UIColor(red: 236.0/255, green: 143.0/255, blue: 153.0/255, alpha: 1).cgColor
+            //self.layer.shadowColor = UIColor(red: 236.0/255, green: 143.0/255, blue: 153.0/255, alpha: 1).cgColor
+            self.layer.shadowColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1).cgColor
+            
             self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string,attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 236.0/255, green: 143.0/255, blue: 153.0/255, alpha: 1)])
         }
 

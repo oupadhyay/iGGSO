@@ -17,8 +17,7 @@ class EventsViewController: UIViewController
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
-    
-    
+
     var events = [String]()
     var chosenEvents = [String]()
     
@@ -26,21 +25,16 @@ class EventsViewController: UIViewController
     {
         super.viewDidLoad()
         
-        
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.allowsMultipleSelection = true
-        
+
         saveButton.isEnabled = false
-        
         saveButton.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
         
         self.navigationController?.navigationBar.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
-        
-        
-
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -59,14 +53,7 @@ class EventsViewController: UIViewController
             chosenEvents.append(events[item[1]])
   
         }
-   
-        
-
-        //Save selected events here.
-    
     }
-
-    
 }
 
 extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -92,7 +79,6 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.eventLabel?.text = event
         
         //Multiple Selection
-        let selectedIndexPaths = tableView.indexPathsForSelectedRows
 
         //let rowIsSelected = selectedIndexPaths != nil && selectedIndexPaths!.contains(indexPath)
         
@@ -107,7 +93,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
-        cell.accessoryType = .checkmark
+        //cell.accessoryType = .checkmark
         
         if !(tableView.indexPathsForSelectedRows == nil) {
             saveButton.isEnabled = true
@@ -120,7 +106,7 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)!
-        cell.accessoryType = .none
+        //cell.accessoryType = .none
         
         if !(tableView.indexPathsForSelectedRows == nil) {
             saveButton.isEnabled = true

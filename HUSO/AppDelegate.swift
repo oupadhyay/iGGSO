@@ -19,11 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
 
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        UITabBar.appearance().tintColor = UIColor(red: 237.0/255, green: 27.0/255, blue: 52.0/255, alpha: 1)
 
         // Add code here (e.g. if/else) to determine which view controller class (chooseViewControllerA or chooseViewControllerB) and storyboard ID (chooseStoryboardA or chooseStoryboardB) to send the user to
 
+        
         let SetupViewController = self.window?.rootViewController as? SetupViewController
 
+        
+        
         if(SetupViewController?.selectedDivision == nil)
         {
             let initialViewController: SetupViewController = mainStoryboard.instantiateViewController(withIdentifier: "setupForm") as! SetupViewController
@@ -68,6 +73,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    private func loadCompetitor() -> Competitor?
+    {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Competitor.ArchiveURL.path) as? Competitor
+    }
 
 }
 

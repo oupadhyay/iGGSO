@@ -8,17 +8,12 @@
 
 import UIKit
 
-class EventCell: UITableViewCell {
-    
-    
+class EventCell: UITableViewCell
+{
     @IBOutlet var eventLabel: UILabel!
-    
-    
-    
-    func setEvent(event: String) {
-        
-        eventLabel.text = event
-        
 
+    func setEvent(event: String)
+    {
+        eventLabel.text = event
     }
 }
