@@ -39,7 +39,7 @@ class ScheduleCell: UITableViewCell
         
         itemTypeLabel.text = event[5]
         
-        if event[5] == "IMPOUND" {
+        if ((event[5] == "IMPOUND") || (event[5] == "HUSO")) {
             timeCircle.image = UIImage(named: "impoundBackground")
         }
         

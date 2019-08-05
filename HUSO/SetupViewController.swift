@@ -382,7 +382,9 @@ class SetupViewController: UIViewController
         //Order the detailed event Information array by time of the event/impound.
         detailedEventInformation = detailedEventInformation.sorted(by: {(Int($0[3])!) < (Int($1[3])!)})
         
-        print("checkpoint")
+        //Add Award Ceremony Stuff
+        detailedEventInformation.append(["Awards Ceremony", "A54", "7:00 PM", "", "No", "HUSO"])
+        
         saveCompetitorSchedule()
     }
     

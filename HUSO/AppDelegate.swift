@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
+    
+    //Disable landscape mode.
+
 
 
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
@@ -25,31 +29,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Add code here (e.g. if/else) to determine which view controller class (chooseViewControllerA or chooseViewControllerB) and storyboard ID (chooseStoryboardA or chooseStoryboardB) to send the user to
 
         
-        let SetupViewController = self.window?.rootViewController as? SetupViewController
-
+       // let SetupViewController = self.window?.rootViewController as? SetupViewController
+        //SetupViewController?.selectedDivision == nil
         
+        let competitor  = loadCompetitor()
         
-        if(SetupViewController?.selectedDivision == nil)
+        //If there is no data loaded, then make the login/Setup screen the default view controller. Otherwise, make it the tar bar controller.
+        if(competitor?.division == nil)
         {
             let initialViewController: SetupViewController = mainStoryboard.instantiateViewController(withIdentifier: "setupForm") as! SetupViewController
             self.window?.rootViewController = initialViewController
         }
         else
         {
-            let initialViewController: ScheduleViewController = mainStoryboard.instantiateViewController(withIdentifier: "scheduleList") as! ScheduleViewController
+            let initialViewController: BaseTabBarController = mainStoryboard.instantiateViewController(withIdentifier: "tabBarController") as! BaseTabBarController
             self.window?.rootViewController = initialViewController
         }
 
         self.window?.makeKeyAndVisible()
+        
+        //MARK: Push Notifications
+        //Register for push notifications after the user has approved them!
+        UIApplication.shared.registerForRemoteNotifications()
 
         return true
     }
     
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
-//    {
-//        // Override point for customization after application launch.
-//        return true
-//    }
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -76,6 +81,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func loadCompetitor() -> Competitor?
     {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Competitor.ArchiveURL.path) as? Competitor
+    }
+    
+    
+    //MARK: Push Notifications
+    //Four methods for remote push notifications
+    func application(
+        _ application: UIApplication,
+        didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
+        ) {
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(
+        _ application: UIApplication,
+        didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    func registerForPushNotifications() {
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) {
+                [weak self] granted, error in
+                
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self?.getNotificationSettings()
+        }
+    }
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            print("Notification settings: \(settings)")
+            
+            guard settings.authorizationStatus == .authorized else { return }
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
+        }
+        
     }
 
 }
