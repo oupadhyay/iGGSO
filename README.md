@@ -14,17 +14,17 @@ Learn more about the app by downloading HUSO on the App Store or reading the doc
 * APPLE MAPS INTEGRATION: 1) Tapping any event or impound in the custom schedule will open a pin with its location in Apple Maps. 2) The first panel of the app shows the building locations of all of one competitor's events. The room number of the first event in each building is highlighted.
 * COMPETITOR PARTICIPATION: Photo submissions for pre-Awards Ceremony slideshows and individualized event and tournament wide feedback forms are encouraged from competitors and incentivized through various reward systems. 
 * COMPETITOR SAFETY: Harvard police contact information is prominently displayed and accessible in the More panel. 
-* FLOOR PLANS: Never get lost at Harvard again. Use floor maps designed by HUSO to navigate through the Science Center, Harvard Hall, and more. 
-* CONTACT: Easily reach out to HUSO with from within the app using emails that are automatically half-written for the user. 
+* FLOOR PLANS: Competitors will never get lost at Harvard. They can use floor maps designed by HUSO to navigate through the Science Center, Harvard Hall, and more. 
+* CONTACT: Competitors can easily reach out to HUSO with from within the app using emails that are automatically half-written for the user. 
 * ARBITRATION: Competitors can review arbitration protocols and forms and help get their coach involved.  
-* WEBSITE: Peruse HUSO's website and files without ever leaving the app. 
-* RESULTS: Be the first to find out how you and your team compared with the competition. 
-* NEW VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> Showcases newly designed logo to act as the icon for the app.
+* WEBSITE: HUSO's website and files are accessible without ever leaving the app. 
+* RESULTS: Users can be the first to find out how their team compared with the competition. 
+* NEW VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
 
 
 ## Tournament Support
 
-I would happily support any Science Olympiad tournament that would like to support this app. The app has been designed so that it is easy to implement for different tournaments and would require almost no effort on behalf of the tournament director of a Science Olympiad tournament. 
+I would happily work with any Science Olympiad tournament that would like to support the development of a custom Science Olympiad tournament app. From ideation to debugging, the underlying code has been designed so that can be easily implemented for different tournaments and would require almost no effort on behalf of the tournament director. 
 
 ## Get in Touch
 
