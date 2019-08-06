@@ -17,7 +17,6 @@ class SubmitCell: UITableViewCell
     @IBOutlet var itemDescription: UILabel!
     @IBOutlet var backgroundImage: UIImageView!
     
-    
     func populateItem (entry: [String]) {
         itemTitle.text = entry[0]
         itemDescription.text = entry[1]
@@ -31,8 +30,6 @@ class SubmitCell: UITableViewCell
         
         itemButton.setTitle("", for: .normal)
         itemButton.isEnabled = true
-        
-        
         
         if entry[0] == "Photos" {
             
@@ -52,11 +49,7 @@ class SubmitCell: UITableViewCell
             
             photoContainer.backgroundColor = UIColor.yellow
              backgroundImage.image = UIImage(named:"ArbitrationPhoto")
-       
         }
-        
     }
-    
-    
 }
 

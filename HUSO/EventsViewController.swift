@@ -14,6 +14,7 @@ class EventsViewController: UIViewController
         
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var saveButton: UIBarButtonItem!
+    
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
@@ -30,9 +31,9 @@ class EventsViewController: UIViewController
         tableView.allowsMultipleSelection = true
 
         saveButton.isEnabled = false
-        saveButton.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
+        saveButton.tintColor = UIColor(red: 237/255.0, green: 27/255.0, blue: 52/255.0, alpha:1)
         
-        self.navigationController?.navigationBar.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
+        self.navigationController?.navigationBar.tintColor = UIColor(red: 237/255.0, green: 27/255.0, blue: 52/255.0, alpha:1)
     }
     
     
@@ -51,7 +52,6 @@ class EventsViewController: UIViewController
         for item in selectedRows!
         {
             chosenEvents.append(events[item[1]])
-  
         }
     }
 }
@@ -66,34 +66,23 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
         let cellIdentifier = "EventCell"
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventCell 
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! EventCell
         
         let event = events[indexPath.row]
-
         cell.setEvent(event: event)
-        
         cell.eventLabel?.text = event
         
-        //Multiple Selection
-
-        //let rowIsSelected = selectedIndexPaths != nil && selectedIndexPaths!.contains(indexPath)
-        
+        //Set colors for the background and the tints.
         let bgColorView = UIView()
         bgColorView.backgroundColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)
         cell.selectedBackgroundView = bgColorView
-        
         cell.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
 
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        //cell.accessoryType = .checkmark
         
         if !(tableView.indexPathsForSelectedRows == nil) {
             saveButton.isEnabled = true
@@ -105,8 +94,6 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)!
-        //cell.accessoryType = .none
         
         if !(tableView.indexPathsForSelectedRows == nil) {
             saveButton.isEnabled = true
@@ -114,6 +101,4 @@ extension EventsViewController: UITableViewDelegate, UITableViewDataSource {
             saveButton.isEnabled = false
         }
     }
-    
-
 }

@@ -15,15 +15,11 @@ class FeedbackCell: UITableViewCell
     @IBOutlet var formDescription: UILabel!
     @IBOutlet var formDirections: UILabel!
     
-    
     func populateCell(entry: [String])
     {
         formLink.setTitle(entry[0], for: .normal)
         formDescription.text = entry[1]
         formDirections.text = entry[2]
-        
         formLink.isEnabled = true
-        
-        
     }
 }

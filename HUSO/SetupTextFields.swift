@@ -36,15 +36,9 @@ class SetupTextFields: UITextField {
 
         else {
 
-            //RED
+            //RED shadows.
             self.layer.shadowColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1).cgColor
            self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)])
-
-
-            //GREEN
-//            self.layer.shadowColor = UIColor(red: 77.0/255, green: 184.0/255, blue: 72.0/255, alpha: 1).cgColor
-//             self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 77.0/255, green: 184.0/255, blue: 72.0/255, alpha: 1)])
-
         }
     }
 }

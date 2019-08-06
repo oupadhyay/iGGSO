@@ -1,0 +1,11 @@
+﻿Building,Abbreviation,Latitude,Longitude 
+Science Center,Science,42.376492,-71.116657
+Northwest Labs,NW Labs,42.380251,-71.115267
+Harvard Hall,Harvard,42.375051,-71.118173
+Emerson Hall,Emerson ,42.374083,-71.115127
+Hemenway Gymnasium,Hemenway,42.377166,-71.119278
+Sever Hall,Sever,42.374559,-71.115446
+,,,
+,This abbreviation sshould be exactly what proceeds the room number in the schedule. ,,
+,"For example, if an event is in ""Hem Main Gym"" ",,
+,Then the abbreviation should be Hem,,

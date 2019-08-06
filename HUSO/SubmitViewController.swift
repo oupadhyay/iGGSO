@@ -10,7 +10,6 @@ import UIKit
 
 class SubmitViewController: UIViewController
 {
-    
     @IBOutlet var tableView: UITableView!
     
     var submitInformation = [["Photos", "Be featured in the Awards Ceremony slideshow."],["Feedback", "Complete a form after every event. Recieve bonus points."], ["Arbitration", "Defend against unfair or improper treatment."]]
@@ -20,19 +19,13 @@ class SubmitViewController: UIViewController
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
         self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
-        
-        
-       
-        // Do any additional setup after loading the view.
     }
     
+    //Remove the navigation bar
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
-
     }
-
 }
 
 extension SubmitViewController: UITableViewDelegate, UITableViewDataSource {
@@ -47,12 +40,9 @@ extension SubmitViewController: UITableViewDelegate, UITableViewDataSource {
     {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "SubmitCell", for: indexPath) as! SubmitCell
-        
    
         let entry = submitInformation[indexPath.row]
-        
         cell.populateItem(entry: entry)
-        
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         if entry[0] == "Feedback" {
@@ -78,8 +68,6 @@ extension SubmitViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func arbitrateSegue () {
         performSegue(withIdentifier: "arbitrateSegue", sender: self)
     }
-    
-    
-    
-    
 }
+
+

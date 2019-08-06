@@ -14,27 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var window: UIWindow?
     
-    //Disable landscape mode.
-
-
-
     internal func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool
     {
+        //Disable landscape mode. 
         self.window = UIWindow(frame: UIScreen.main.bounds)
-
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         
+        //Make sharp red the default tint color.
         UITabBar.appearance().tintColor = UIColor(red: 237.0/255, green: 27.0/255, blue: 52.0/255, alpha: 1)
 
-        // Add code here (e.g. if/else) to determine which view controller class (chooseViewControllerA or chooseViewControllerB) and storyboard ID (chooseStoryboardA or chooseStoryboardB) to send the user to
-
-        
-       // let SetupViewController = self.window?.rootViewController as? SetupViewController
-        //SetupViewController?.selectedDivision == nil
-        
+        //Load competitor data to determine the initial view controller.
         let competitor  = loadCompetitor()
-        
-        //If there is no data loaded, then make the login/Setup screen the default view controller. Otherwise, make it the tar bar controller.
         if(competitor?.division == nil)
         {
             let initialViewController: SetupViewController = mainStoryboard.instantiateViewController(withIdentifier: "setupForm") as! SetupViewController

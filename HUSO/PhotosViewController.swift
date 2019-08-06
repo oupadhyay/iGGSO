@@ -20,24 +20,16 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         competitor = loadCompetitor()
-        
         submitButton.addTarget(self, action: #selector(sendMail), for: .touchUpInside)
-        
         submitButton.isEnabled = false
-        submitButton.layer.shadowOpacity = 1
-        submitButton.layer.shadowRadius = 3
-        submitButton.layer.shadowOffset = CGSize(width: 0, height: 0.3)
-        
-        
-        // Do any additional setup after loading the view.
     }
     
+    //Show the navigation bar
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        
     }
     
-    
+    //Select an image when the selector is tapped.
     @IBAction func selectImageFromLibrary(_ sender: UITapGestureRecognizer) {
         
         let imagePickerController = UIImagePickerController()
@@ -50,6 +42,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
         present(imagePickerController, animated: true, completion: nil)
     }
     
+    //Submit the photo when the button is clicked.
     @objc func sendMail() {
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
@@ -90,11 +83,11 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
         
         // Set selectImage to display the selected image.
         selectImage.image = selectedImage
-        
-        //
         submitButton.isEnabled = true
+        submitButton.layer.shadowOpacity = 1
+        submitButton.layer.shadowRadius = 3
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 0.3)
         submitButton.layer.shadowColor = UIColor(red: 252/255.0, green: 179/255.0, blue: 21/255.0, alpha: 1).cgColor
-        
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)

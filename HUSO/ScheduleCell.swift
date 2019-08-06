@@ -18,7 +18,6 @@ class ScheduleCell: UITableViewCell
     @IBOutlet var eventNameLabel: UILabel!
     @IBOutlet var timeCircle: UIImageView!
     
-    
     func createCell(event: [String])
     {
         eventNameLabel.text = event[0]

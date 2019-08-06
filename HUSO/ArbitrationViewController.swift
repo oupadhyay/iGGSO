@@ -13,7 +13,6 @@ class ArbitrationViewController: UIViewController
 {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         let pdfFilePath = Bundle.main.url(forResource: "arbitration", withExtension: "pdf")
         let urlRequest = URLRequest.init(url: pdfFilePath!)
@@ -22,9 +21,9 @@ class ArbitrationViewController: UIViewController
         self.view.addSubview(webView)
     }
     
+    //Show the navigation bar. 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        
     }
     
 }

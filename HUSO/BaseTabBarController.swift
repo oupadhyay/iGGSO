@@ -11,6 +11,7 @@ class BaseTabBarController: UITabBarController {
     
     @IBInspectable var defaultIndex: Int = 1
     
+    //Set the default index to the page with the schedule.
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedIndex = defaultIndex

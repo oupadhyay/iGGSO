@@ -3,12 +3,14 @@ import csv, json
 
 outputPath = "package.json"
 
-schedulesB = ["Schedules_B.csv"]
-schedulesC = ["Schedules_C.csv"]
-teamsB = ["Teams_B.csv"]
-teamsC = ["Teams_C.csv"]
+schedulesB = ["Schedules_B_final.csv"]
+schedulesC = ["Schedules_C_final.csv"]
+teamsB = ["Teams_B_final.csv"]
+teamsC = ["Teams_C_final.csv"]
+tournamentBuildings = ["TournamentBuildings.csv"]
 
-tournamentFiles = [schedulesB, schedulesC, teamsB, teamsC]
+
+tournamentFiles = [schedulesB, schedulesC, teamsB, teamsC, tournamentBuildings]
 
 
 #Load the four CSV files into Python lists
@@ -80,6 +82,30 @@ def getEventTime(division, teamNumber, eventNumber, eventName):
 
     return "NA"
 
+#Gets the latitude coordinate of the event based off the location abbreviation.
+def getCoordinate(location, flag):
+
+    print(location)
+
+    #Iterates through the number of buildings in the tournament file.
+    for i in range(2, len(tournamentBuildings)):
+
+        if tournamentBuildings[i][1].lower() in location.lower():
+
+            if flag == "latitude":
+
+                return tournamentBuildings[i][2]
+
+            else:
+
+                return tournamentBuildings[i][3]
+
+    return "Coordinate not found"
+
+
+
+
+
 
 #Rounding function to aid in event times.
 def roundTo10(num):
@@ -102,13 +128,22 @@ for i in range(2, len(teamsB)):
             {
                 "eventName": schedulesB[j + 2][0],
                 "eventNumber": j+1,
+                "eventLocation" : schedulesB[j + 2][1],
                 "trialStatus": "Yes" if schedulesB[j + 2][2].lower() == "yes" else "No",
 
                 "impoundStatus": "Yes" if schedulesB[j + 2][4] != "" else "No",
                 "impoundTime": schedulesB[j + 2][4] if schedulesB[j + 2][4] != "" else "NA",
                 "impoundLocation": schedulesB[j + 2][3] if schedulesB[j + 2][3] != "" else "NA",
 
-                "eventTime": getEventTime("B", int(teamsB[i][1]), j+1, schedulesB[j + 2][0])
+                "eventTime": getEventTime("B", int(teamsB[i][1]), j+1, schedulesB[j + 2][0]),
+
+                "eventLatitude": getCoordinate(schedulesB[j + 2][1], "latitude"),
+                "eventLongitude": getCoordinate(schedulesB[j + 2][1], "longitude"),
+
+                "impoundEventLatitude": getCoordinate(schedulesB[j + 2][3], "latitude") if schedulesB[j + 2][
+                                                                                               3] != "" else "NA",
+                "impoundEventLongitude": getCoordinate(schedulesB[j + 2][3], "longitude") if schedulesB[j + 2][
+                                                                                                 3] != "" else "NA"
 
         })
 
@@ -128,13 +163,20 @@ for i in range(2, len(teamsC)):
             {
                 "eventName": schedulesC[j + 2][0],
                 "eventNumber": j+1,
+                "eventLocation": schedulesC[j + 2][1],
                 "trialStatus": "Yes" if schedulesC[j + 2][2].lower() == "yes" else "No",
 
                 "impoundStatus": "Yes" if schedulesC[j + 2][4] != "" else "No",
                 "impoundTime": schedulesC[j + 2][4] if schedulesC[j + 2][4] != "" else "NA",
                 "impoundLocation": schedulesC[j + 2][3] if schedulesC[j + 2][3] != "" else "NA",
 
-                "eventTime": getEventTime("C", int(teamsC[i][1]), j+1, schedulesC[j + 2][0])
+                "eventTime": getEventTime("C", int(teamsC[i][1]), j+1, schedulesC[j + 2][0]),
+
+                "eventLatitude": getCoordinate(schedulesC[j + 2][1], "latitude"),
+                "eventLongitude": getCoordinate(schedulesC[j + 2][1], "longitude"),
+
+                "impoundEventLatitude": getCoordinate(schedulesC[j + 2][3], "latitude") if schedulesC[j + 2][3] != "" else "NA",
+                "impoundEventLongitude": getCoordinate(schedulesC[j + 2][3], "longitude") if schedulesC[j + 2][3] != "" else "NA"
 
         })
 

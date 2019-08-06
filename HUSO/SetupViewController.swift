@@ -37,6 +37,12 @@ struct Events: Codable
     let impoundLocation: String
     
     let eventTime: String
+    
+    let eventLatitude: String
+    let eventLongitude: String
+    
+    let impoundEventLatitude: String
+    let impoundEventLongitude: String
 }
 
 class SetupViewController: UIViewController
@@ -65,13 +71,10 @@ class SetupViewController: UIViewController
     
     var competitor = Competitor(division: "selectedDivision", teamName: "teamName", teamNumber: "teamNumber", homeroom: "homeroom", eventInformation: [["detailedEventInformation"]])
     
-    //var competitor = Competitor(division: "default", teamNumber: 1, events: ["default"], teamInformation: Team?)
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
-        //Load the tournament information JSON file
+    
         if let path = Bundle.main.path(forResource: "package", ofType: "json")
         {
             do
@@ -87,7 +90,7 @@ class SetupViewController: UIViewController
                 {
                     teamsB.append(team.teamName + " - " + team.teamNumber)
                 }
-                
+
                 for team in tournamentInformation!.C
                 {
                     teamsC.append(team.teamName + " - " + team.teamNumber)
@@ -102,13 +105,12 @@ class SetupViewController: UIViewController
                 {
                     eventsC.append(event.eventName)
                 }
-                
-                
             } catch { print("error") }
         }
         
         createDivisionPicker()
         createTeamPicker()
+        
         createToolbarDivision()
         createToolbarTeam()
         
@@ -116,39 +118,16 @@ class SetupViewController: UIViewController
         teamTextField.delegate = self
         eventsTextField.delegate = self
         
-        continueButton.layer.cornerRadius = 26
-        
-        
         updateTextFieldStates()
         
         headerColor.layer.shadowOpacity = 1
         headerColor.layer.shadowRadius = 6
         headerColor.layer.shadowOffset = CGSize(width: 0, height: 0.3)
-        
         headerColor.layer.shadowColor = UIColor(red: 252/255.0, green: 179/255.0, blue: 21/255.0, alpha: 1).cgColor
         
         continueButton.layer.shadowColor = UIColor(red: 237/255.0, green: 27/255.0, blue: 52/255.0, alpha: 1).cgColor
-        
         continueButton.isEnabled = false
-        
-        
-    
-        
-        //        if let competitor = loadCompetitor() {
-        //            divisionTextField.text = competitor.division
-        //            teamTextField.text = String(competitor.teamNumber)
-        //
-        //            //Change the above to team name and number
-        //
-        //
-        //            eventsTextField.text = setEventText(events: competitor.events)
-        //            //tournamentInformation = competitor.tournamentInformation
-        //        }
-        
-        
-        
-        
-        
+        continueButton.layer.cornerRadius = 26
     }
     
     //Create Division PickerView
@@ -158,6 +137,8 @@ class SetupViewController: UIViewController
         divisionPicker.delegate = self
         
         divisionPicker.backgroundColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)
+
+        divisionPicker.selectRow(0, inComponent: 0, animated: false)
         
         divisionTextField.inputView = divisionPicker
     }
@@ -171,6 +152,7 @@ class SetupViewController: UIViewController
         
         teamPicker.backgroundColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)
         
+        teamPicker.selectRow(0, inComponent: 0, animated: true)
         
         teamTextField.inputView = teamPicker
     }
@@ -182,8 +164,10 @@ class SetupViewController: UIViewController
         
         let doneButtonDivision = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(SetupViewController.dismissKeyboard))
         
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        
         doneButtonDivision.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
-        toolBarDivision.setItems([doneButtonDivision], animated: false)
+        toolBarDivision.setItems([flexibleSpace, doneButtonDivision], animated: false)
         toolBarDivision.isUserInteractionEnabled = true
         
         divisionTextField.inputAccessoryView = toolBarDivision
@@ -196,9 +180,11 @@ class SetupViewController: UIViewController
         
         let doneButtonTeam = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(SetupViewController.dismissKeyboard))
         
+         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: self, action: nil)
+        
         doneButtonTeam.tintColor = UIColor(red: 0.644305, green: 0.0630083, blue: 0.204552, alpha:1)
         
-        toolBarTeam.setItems([doneButtonTeam], animated: false)
+        toolBarTeam.setItems([flexibleSpace, doneButtonTeam], animated: false)
         toolBarTeam.isUserInteractionEnabled = true
         
         teamTextField.inputAccessoryView = toolBarTeam
@@ -282,11 +268,7 @@ class SetupViewController: UIViewController
         
         if(segue.identifier == "enterApp")
         {
-            let barViewControllers = segue.destination as! BaseTabBarController
-            let schedule = barViewControllers.viewControllers?[1] as! ScheduleViewController
-            
             buildCompetitorSchedule()
-            //schedule.competitor = competitor
         }
     }
     
@@ -294,7 +276,7 @@ class SetupViewController: UIViewController
     {
         //Subtract 1 to get the right index
         teamNumber = String(selectedTeam.last!)
-        print(teamNumber)
+    
         let tNAdj = Int(teamNumber)! - 1
         
         if selectedDivision == "Division B"
@@ -318,8 +300,11 @@ class SetupViewController: UIViewController
                 singularEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].eventLocation)
                 singularEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].eventTime)
                 singularEventData.append(convertTime(hhMMa: singularEventData[2]))
-                singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].trialStatus)
-                singularEventData.append("EVENT:")
+                singularEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].trialStatus)
+                singularEventData.append("EVENT")
+                
+                singularEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].eventLatitude)
+                singularEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].eventLongitude)
                 
                 detailedEventInformation.append(singularEventData)
                 
@@ -332,8 +317,12 @@ class SetupViewController: UIViewController
                     impoundEventData.append( tournamentInformation!.B[tNAdj].events[Int(index)].impoundLocation)
                     impoundEventData.append( tournamentInformation!.B[tNAdj].events[Int(index)].impoundTime)
                     impoundEventData.append(convertTime(hhMMa: impoundEventData[2]))
-                    impoundEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].trialStatus)
-                    impoundEventData.append("IMPOUND:")
+                    impoundEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].trialStatus)
+                    impoundEventData.append("IMPOUND")
+                    
+                    
+                    impoundEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].impoundEventLatitude)
+                    impoundEventData.append(tournamentInformation!.B[tNAdj].events[Int(index)].impoundEventLongitude)
                     detailedEventInformation.append(impoundEventData)
                 }
             }
@@ -361,6 +350,10 @@ class SetupViewController: UIViewController
                 singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].trialStatus)
                 singularEventData.append("EVENT")
                 
+                singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].eventLatitude)
+                singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].eventLongitude)
+                
+                
                 detailedEventInformation.append(singularEventData)
                 
                 // Account for impound events.
@@ -374,6 +367,9 @@ class SetupViewController: UIViewController
                     impoundEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].trialStatus)
                     impoundEventData.append("IMPOUND")
                     
+                    impoundEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].impoundEventLatitude)
+                    impoundEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].impoundEventLongitude)
+                    
                     detailedEventInformation.append(impoundEventData)
                 }
             }
@@ -383,7 +379,7 @@ class SetupViewController: UIViewController
         detailedEventInformation = detailedEventInformation.sorted(by: {(Int($0[3])!) < (Int($1[3])!)})
         
         //Add Award Ceremony Stuff
-        detailedEventInformation.append(["Awards Ceremony", "A54", "7:00 PM", "", "No", "HUSO"])
+        detailedEventInformation.append(["Awards Ceremony", "Science 8", "7:00 PM", "", "No", "HUSO", "42.376492", "-71.116657"])
         
         saveCompetitorSchedule()
     }
@@ -451,10 +447,16 @@ class SetupViewController: UIViewController
         let date24 = dateFormatter.string(from: date!)
         
         let leftTime = String(Int(String(date24.prefix(2)))!)
-        let rightTime = String(Int(String(date24.suffix(2)))!*100/60)
-        let intDate = leftTime + rightTime
         
-        return intDate
+       
+        if String(Int(String(date24.suffix(2)))!) == "0" {
+            let rightTime = "00"
+            return leftTime + rightTime
+        } else {
+            let rightTime = String(Int(String(date24.suffix(2)))!)
+            return leftTime + rightTime
+        }
+        
     }
 }
 
@@ -510,6 +512,7 @@ extension SetupViewController: UIPickerViewDelegate, UIPickerViewDataSource
             teamTextField.text = selectedTeam
         } else
         {
+        
             selectedTeam = teamsC[row]
             teamTextField.text = selectedTeam
         }
@@ -546,6 +549,7 @@ extension SetupViewController: UITextFieldDelegate
         }
     }
 }
+
 
 
 
