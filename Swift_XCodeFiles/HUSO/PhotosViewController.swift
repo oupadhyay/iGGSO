@@ -47,7 +47,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
         if MFMailComposeViewController.canSendMail() {
             let mail = MFMailComposeViewController()
             mail.mailComposeDelegate = self;
-            mail.setCcRecipients(["team@harvardscioly.org"])
+            mail.setToRecipients(["team@harvardscioly.org"])
             mail.setSubject("Pre-Award Ceremony Photo Submission")
             
             let teamName = competitor?.teamName

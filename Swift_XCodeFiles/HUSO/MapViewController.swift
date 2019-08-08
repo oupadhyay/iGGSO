@@ -49,7 +49,7 @@ class MapViewController: UIViewController, MKMapViewDelegate
             
             annotation.coordinate = CLLocationCoordinate2D(latitude: latitude1, longitude: longitude1)
             annotation.title = "\(event[1])"
-            annotation.subtitle = "This is the room of your first event in this building"
+            annotation.subtitle = "The room name of one of your events in this building"
             mapView.addAnnotation(annotation)
         }
         

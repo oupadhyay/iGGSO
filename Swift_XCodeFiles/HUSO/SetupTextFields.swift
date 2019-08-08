@@ -41,6 +41,7 @@ class SetupTextFields: UITextField {
            self.attributedPlaceholder = NSAttributedString(string: self.attributedPlaceholder!.string, attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)])
         }
     }
+    
 }
 
     

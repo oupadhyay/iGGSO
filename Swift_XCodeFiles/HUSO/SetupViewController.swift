@@ -71,6 +71,9 @@ class SetupViewController: UIViewController
     
     var competitor = Competitor(division: "selectedDivision", teamName: "teamName", teamNumber: "teamNumber", homeroom: "homeroom", eventInformation: [["detailedEventInformation"]])
     
+    var teamPicker = UIPickerView()
+    var divisionPicker = UIPickerView()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -133,23 +136,26 @@ class SetupViewController: UIViewController
     //Create Division PickerView
     func createDivisionPicker()
     {
-        let divisionPicker = UIPickerView()
+        divisionPicker = UIPickerView()
         divisionPicker.delegate = self
         
         divisionPicker.backgroundColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)
-
-        divisionPicker.selectRow(0, inComponent: 0, animated: false)
+        print(divisionPicker.numberOfComponents)
+        
+        divisionPicker.selectRow(0, inComponent: 0, animated: true)
+        
+        print(divisionPicker.selectedRow(inComponent: 0))
         
         divisionTextField.inputView = divisionPicker
+        divisionPicker.selectRow(0, inComponent: 0, animated: true)
     }
     
     //Create Team PickerView
     func createTeamPicker()
     {
-        let teamPicker = UIPickerView()
+        teamPicker = UIPickerView()
         teamPicker.tag = 1
         teamPicker.delegate = self
-        
         teamPicker.backgroundColor = UIColor(red: 147.0/255, green: 161.0/255, blue: 173.0/255, alpha: 1)
         
         teamPicker.selectRow(0, inComponent: 0, animated: true)
@@ -190,14 +196,12 @@ class SetupViewController: UIViewController
         teamTextField.inputAccessoryView = toolBarTeam
     }
     
-    
     @objc func dismissKeyboard()
     {
         view.endEditing(true)
         updateTextFieldStates()
     }
-    
-    //MARK: Private Methods
+
     private func updateTextFieldStates()
     {
         teamTextField.isUserInteractionEnabled = !selectedDivision.isEmpty
@@ -213,12 +217,6 @@ class SetupViewController: UIViewController
         
         
         if (!selectedEvents.isEmpty && !selectedTeam.isEmpty) {
-            //GREEN UPON COMPLETION
-            //            divisionTextField.layer.shadowColor = UIColor(red: 77.0/255, green: 184.0/255, blue: 72.0/255, alpha: 1).cgColor
-            //            teamTextField.layer.shadowColor = UIColor(red: 77.0/255, green: 184.0/255, blue: 72.0/255, alpha: 1).cgColor
-            //            eventsTextField.layer.shadowColor = UIColor(red: 77.0/255, green: 184.0/255, blue: 72.0/255, alpha: 1).cgColor
-            
-            //Make Continue Button Beautiful
             continueButton.layer.shadowOpacity = 1
             continueButton.layer.shadowRadius = 6
             continueButton.layer.shadowOffset = CGSize(width: 0, height: 0.3)
@@ -227,6 +225,13 @@ class SetupViewController: UIViewController
             continueButton.layer.shadowColor = UIColor(red: 252/255.0, green: 179/255.0, blue: 21/255.0, alpha: 1).cgColor
             
             continueButton.isEnabled = true
+        }
+        
+        if selectedDivision != "" {
+             divisionTextField.text = selectedDivision
+        }
+        if selectedTeam != "" {
+            teamTextField.text = selectedTeam
         }
     }
     @IBAction func unwindToSetup(sender: UIStoryboardSegue)
@@ -489,18 +494,25 @@ extension SetupViewController: UIPickerViewDelegate, UIPickerViewDataSource
         
         if pickerView.tag == 0
         {
+          
+            
             return divisions[row]
         } else if selectedDivision == "Division B"
         {
+            
+            
             return teamsB[row]
         } else
         {
+           
+            
             return teamsC[row]
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
+        
         
         if pickerView.tag == 0
         {
@@ -518,6 +530,8 @@ extension SetupViewController: UIPickerViewDelegate, UIPickerViewDataSource
         }
         
     }
+    
+    
 }
 
 
@@ -534,6 +548,9 @@ extension SetupViewController: UITextFieldDelegate
             selectedTeam = ""
             selectedEvents = []
         }
+        
+
+        
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool
@@ -543,8 +560,31 @@ extension SetupViewController: UITextFieldDelegate
         {
             performSegue(withIdentifier: "SelectEvents", sender: self)
             return false
-        } else
+        }
+        
+        if textField == self.divisionTextField
         {
+            
+            selectedDivision = "Division B"
+           
+            return true
+        }
+    
+        if textField == self.teamTextField  && selectedDivision == "Division B"
+        {
+            selectedTeam = teamsB[0]
+       
+            return true
+    
+        }
+    
+        if textField == self.teamTextField  && selectedDivision == "Division C"
+        {
+            selectedTeam = teamsC[0]
+           
+            return true
+    
+        } else {
             return true
         }
     }
