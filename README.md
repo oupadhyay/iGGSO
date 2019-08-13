@@ -17,9 +17,9 @@ Learn more about the app by downloading HUSO on the App Store or reading the doc
 * FLOOR PLANS: Competitors will never get lost at Harvard. They can use floor maps designed by HUSO to navigate through the Science Center, Harvard Hall, and more. 
 * CONTACT: Competitors can easily reach out to HUSO with from within the app using emails that are automatically half-written for the user. 
 * ARBITRATION: Competitors can review arbitration protocols and forms and help get their coach involved.  
-* WEBSITE: HUSO's website and files are accessible without ever leaving the app. 
+* WEBSITE: HUSO's website and files are accessible from within the app. 
 * RESULTS: Users can be the first to find out how their team compared with the competition. 
-* NEW VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
+* VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
 
 
 ## Tournament Support
@@ -28,7 +28,7 @@ I would happily work with any Science Olympiad tournament that would like to sup
 
 ## Get in Touch
 
-Please feel free to reach out to me [ashernoel@college.harvard.edu](mailto:ashernoel@college.harvard.edu) with any questions or concerns. 
+Please feel free to reach out to me [ashernoel@college.harvard.edu](mailto:ashernoel@college.harvard.edu) with any questions or business inquiries. 
 
 
 
