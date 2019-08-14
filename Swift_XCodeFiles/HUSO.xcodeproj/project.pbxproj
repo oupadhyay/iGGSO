@@ -76,18 +76,18 @@
 		FF640C7422F1A42900EEB9FB /* SubmitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitViewController.swift; sourceTree = "<group>"; };
 		FF640C7822F1A57E00EEB9FB /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		FFE729D522F301F1008BEB81 /* ScheduleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCell.swift; sourceTree = "<group>"; };
-		FFE729DB22F42A1F008BEB81 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoreViewController.swift; path = ../MoreViewController.swift; sourceTree = "<group>"; };
+		FFE729DB22F42A1F008BEB81 /* MoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreViewController.swift; sourceTree = "<group>"; };
 		FFE729DD22F432B4008BEB81 /* MoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreCell.swift; sourceTree = "<group>"; };
 		FFE729DF22F62966008BEB81 /* HUSO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HUSO.entitlements; sourceTree = "<group>"; };
 		FFE729E022F67719008BEB81 /* SubmitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitCell.swift; sourceTree = "<group>"; };
 		FFE729E222F67AAF008BEB81 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		FFE729E422F67AD2008BEB81 /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		FFE729E822F6CDB2008BEB81 /* ArbitrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArbitrationViewController.swift; sourceTree = "<group>"; };
-		FFE729EA22F7A0B4008BEB81 /* arbitration.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = arbitration.pdf; path = ../../../../Downloads/arbitration.pdf; sourceTree = "<group>"; };
+		FFE729EA22F7A0B4008BEB81 /* arbitration.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = arbitration.pdf; sourceTree = "<group>"; };
 		FFE729EC22F7BABF008BEB81 /* FeedbackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackCell.swift; sourceTree = "<group>"; };
 		FFE729FD22F85D7B008BEB81 /* FloorplanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorplanViewController.swift; sourceTree = "<group>"; };
 		FFE729FF22F85D92008BEB81 /* FloorplanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloorplanCell.swift; sourceTree = "<group>"; };
-		FFE72A0322F8E80A008BEB81 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../../../../PycharmProjects/SciolyAppPrimer/package.json; sourceTree = "<group>"; };
+		FFE72A0322F8E80A008BEB81 /* package.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = package.json; path = ../../Python_SciolyAppPrimer/package.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
