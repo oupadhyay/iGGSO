@@ -6,7 +6,7 @@ Learn more about the app by downloading HUSO on the App Store or reading the doc
 
 ## Screenshots: 
 
-<img src="/Images/login.png" alt="Default Login Screen" width="250"/> <img src="/Images/maps.png" alt="Individualized Map" width="250"/> <img src="/Images/schedule.png" alt="Individualzed Schedule" width="250"/><img src="/Images/submit.png" alt="Submission Options" width="250"/> <img src="/Images/more.png" alt="More Options" width="250"/> <img src="/Images/applemaps.png" alt="Clicking on Events Opens Maps" width="250"/> 
+<img src="/Images/login.png" alt="Default Login Screen" width="200"/> <img src="/Images/maps.png" alt="Individualized Map" width="200"/> <img src="/Images/schedule.png" alt="Individualzed Schedule" width="200"/><img src="/Images/submit.png" alt="Submission Options" width="200"/> <img src="/Images/more.png" alt="More Options" width="200"/> <img src="/Images/applemaps.png" alt="Clicking on Events Opens Maps" width="200"/> 
 
 ## Features: 
 
