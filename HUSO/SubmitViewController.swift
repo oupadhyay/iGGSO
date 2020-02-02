@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SafariServices
 
-class SubmitViewController: UIViewController
+class SubmitViewController: UIViewController, SFSafariViewControllerDelegate
 {
     @IBOutlet var tableView: UITableView!
     
@@ -51,7 +52,7 @@ extension SubmitViewController: UITableViewDelegate, UITableViewDataSource {
         } else if entry[0] == "Photos" {
             cell.itemButton.addTarget(self, action: #selector(self.photosSegue), for: .touchUpInside)
         } else if entry[0] == "Arbitration" {
-            cell.itemButton.addTarget(self, action: #selector(self.arbitrateSegue), for: .touchUpInside)
+            cell.itemButton.addTarget(self, action: #selector(self.linkWebsite(sender:)), for: .touchUpInside)
         }
         
         return cell
@@ -65,8 +66,16 @@ extension SubmitViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "photosSegue", sender: self)
     }
     
-    @objc func arbitrateSegue () {
-        performSegue(withIdentifier: "arbitrateSegue", sender: self)
+    @objc func linkWebsite(sender: UIButton!) {
+            
+        guard let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLSedhAWEo1mQ9L20ZA9gGhxaVSBIc2eF4U4DlX-je9o30NoCxA/viewform") else {
+            return
+        }
+        
+        let safariVC = SFSafariViewController(url: url)
+        safariVC.delegate = self
+        present(safariVC, animated: true, completion: nil)
+            
     }
 }
 

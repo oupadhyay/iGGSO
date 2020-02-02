@@ -52,7 +52,7 @@ class PhotosViewController: UIViewController, MFMailComposeViewControllerDelegat
             
             let teamName = competitor?.teamName
             
-            mail.setMessageBody("Hello Harvard Scioly, \n\n This is a pre-award ceremony photo submission from \(teamName!) High School.", isHTML: false)
+            mail.setMessageBody("Hello Harvard Scioly, \n\n This is a pre-award ceremony photo submission from \(teamName!) High School. Feel free to include it in the award ceremony slideshow or wherever it is useful. \n \n Thanks! \n Competitors from \(teamName!) High School", isHTML: false)
             let imageData: NSData = selectImage.image!.pngData()! as NSData
             mail.addAttachmentData(imageData as Data, mimeType: "image/png", fileName: "imageName.png")
             self.present(mail, animated: true, completion: nil)

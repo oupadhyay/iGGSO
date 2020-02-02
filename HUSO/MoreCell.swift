@@ -92,7 +92,7 @@ class MoreCell: UITableViewCell
             imageView1.center = CGPoint(x: itemButton.frame.size.width  / 2,
                                        y: itemButton.frame.size.height / 2)
             
-        } else if event[0] == "Report" {
+        } else if event[0] == "Github" {
             createButton()
             imageView1.image = nil
             switchView.removeFromSuperview()

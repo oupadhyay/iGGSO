@@ -14,7 +14,7 @@ class FeedbackViewController: UIViewController, SFSafariViewControllerDelegate
     
     @IBOutlet var tableView: UITableView!
     
-    var feedbackInformation = [["Event Feedback Form ➤", "Non-App User link: \nhttps://forms.gle/McqedUqR2MJBnjoG7", "After every event, both teammates should complete this form. \n \nAt most one teammate per event per team can use the event specific keyword provided by each event supervisor to recieve +1 bonus point added to their score or a comparable bonus in build events."],["Tournament Feedback Form ➤", "Non-App User link: \nhttps://forms.gle/6jmzn911dg9JRsUW8",  "After the award ceremony, competitors, coaches, and volunteers should complete this form to help HUSO and enter a lottery to recieve statistics about event raw scores."]]
+    var feedbackInformation = [["Event Feedback Form ➤", "Non-App User link: \nhttps://forms.gle/McqedUqR2MJBnjoG7", "After every event, both teammates should complete this form. \n \nAt most one teammate per event per team can use the event specific keyword provided by each event supervisor to recieve a tie-breaking bonus point added or subtracted to their score in some events."],["Tournament Feedback Form ➤", "Non-App User link: \nhttps://forms.gle/6jmzn911dg9JRsUW8",  "After the award ceremony, competitors, coaches, and volunteers should complete this form to help HUSO and enter a lottery to recieve statistics about event raw scores."]]
     
     
     override func viewDidLoad() {

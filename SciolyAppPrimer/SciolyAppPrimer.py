@@ -54,8 +54,14 @@ def getEventTime(division, teamNumber, eventNumber, eventName):
         else:
             for i in range (6,12):
 
+                adjustedTeamNumber = teamNumber
+                if teamNumber == 26:
+                    adjustedTeamNumber = 25
 
-                if int(roundTo5(teamNumber) + 1) == int(schedulesB[eventNumber+1][i]) or int(roundTo5(teamNumber) + 2) == int(schedulesB[eventNumber+1][i]) :
+                if teamNumber >= 31:
+                    adjustedTeamNumber = 30
+
+                if int(roundTo5(adjustedTeamNumber - 1) + 1) == int(schedulesB[eventNumber+1][i]) or int(roundTo5(adjustedTeamNumber - 1) + 2) == int(schedulesB[eventNumber+1][i]) :
                     return schedulesB[1][i]
 
     if division == "C":
@@ -77,7 +83,8 @@ def getEventTime(division, teamNumber, eventNumber, eventName):
         else:
             for i in range(6, 12):
 
-                if int(roundTo10(teamNumber) + 1) == int(schedulesC[eventNumber + 1][i]):
+
+                if int(roundTo10(teamNumber - 1) + 1) == int(schedulesC[eventNumber + 1][i]):
                     return schedulesC[1][i]
 
     return "NA"

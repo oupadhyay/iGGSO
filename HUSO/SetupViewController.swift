@@ -352,7 +352,7 @@ class SetupViewController: UIViewController
                 singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].eventName)
                 
                 if tournamentInformation!.C[tNAdj].events[Int(index)].eventName == "Chem Lab" || tournamentInformation!.C[tNAdj].events[Int(index)].eventName == "Forensics" {
-                    detailedEventInformation.append(["Lab Safety (Chem Events)", "Science Center 212", "7:00 AM", "700", "No", "HUSO", "42.376492", "-71.116657"])
+                    detailedEventInformation.append(["Lab Safety (Chem Events)", "Science Center 212", "7:30 AM", "730", "No", "HUSO", "42.376492", "-71.116657"])
                 }
                 
                 singularEventData.append(tournamentInformation!.C[tNAdj].events[Int(index)].eventLocation)
@@ -397,12 +397,10 @@ class SetupViewController: UIViewController
         
         //Add Award Ceremony For division
         if selectedDivision == "Division B" {
-            detailedEventInformation.append(["Check-In", "Sever Hall 110", "6:00 AM", "600", "No", "HUSO", "42.374559","-71.115446"])
-            detailedEventInformation.append(["Lab Safety Training", "Science Center 212", "7:00 AM", "700", "No", "HUSO", "42.376492", "-71.116657"])
+            detailedEventInformation.append(["Check-In", "Science Center Lobby", "6:30 AM", "630", "No", "HUSO", "42.374559","-71.115446"])
+            detailedEventInformation.append(["Lab Safety Training", "Science Center 212", "7:15 AM", "715", "No", "HUSO", "42.376492", "-71.116657"])
             detailedEventInformation.append(["Awards Ceremony", "Science Center B", "3:00 PM", "1500", "No", "HUSO", "42.376492", "-71.116657"])
         } else if selectedDivision == "Division C" {
-        
-        
             detailedEventInformation.append(["Awards Ceremony", "Science Center B", "5:30 PM", "1730", "No", "HUSO", "42.376492", "-71.116657"])
         }
         
