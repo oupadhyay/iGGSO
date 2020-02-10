@@ -21,6 +21,10 @@ Learn more about the app by downloading HUSO on the App Store or reading the doc
 * RESULTS: Users can be the first to find out how their team compared with the competition. 
 * VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
 
+## Post-Tournament Reflections
+
+Read about how the app performed here: https://scioly.org/forums/viewtopic.php?f=294&p=409068#p409068
+
 
 ## Tournament Support
 
