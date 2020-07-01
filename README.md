@@ -1,8 +1,6 @@
-# HUSO
+# iGGSO
 
-An app that provides everything a competitor would ever want or need at a Harvard University Science Olympiad Tournanent. 
-
-Learn more about the app by downloading HUSO on the App Store or reading the documentation below. 
+An app that provides everything a competitor would ever want or need at a Golden Gate Invitational Science Olympiad Tournanent. 
 
 ## Screenshots: 
 
@@ -21,20 +19,7 @@ Learn more about the app by downloading HUSO on the App Store or reading the doc
 * RESULTS: Users can be the first to find out how their team compared with the competition. 
 * VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
 
-## Post-Tournament Reflections
-
-Read about how the app performed here: https://scioly.org/forums/viewtopic.php?f=294&p=409068#p409068
-
-
 ## Tournament Support
 
 I would happily work with any Science Olympiad tournament that would like to support the development of a custom Science Olympiad tournament app. From ideation to debugging, the underlying code has been designed so that can be easily implemented for different tournaments and would require almost no effort on behalf of the tournament director. 
-
-## Get in Touch
-
-Please feel free to reach out to me [ashernoel@college.harvard.edu](mailto:ashernoel@college.harvard.edu) with any questions or business inquiries. 
-
-
-
-
 
