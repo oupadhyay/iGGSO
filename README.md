@@ -1,4 +1,4 @@
-# iGGSO
+# iGGSO (in progress)
 
 An app that provides everything a competitor would ever want or need at a Golden Gate Invitational Science Olympiad Tournanent. 
 
@@ -12,10 +12,10 @@ An app that provides everything a competitor would ever want or need at a Golden
 * APPLE MAPS INTEGRATION: 1) Tapping any event or impound in the custom schedule will open a pin with its location in Apple Maps. 2) The first panel of the app shows the building locations of all of one competitor's events. The room number of the first event in each building is highlighted.
 * COMPETITOR PARTICIPATION: Photo submissions for pre-Awards Ceremony slideshows and individualized event and tournament wide feedback forms are encouraged from competitors and incentivized through various reward systems. 
 * COMPETITOR SAFETY: Harvard police contact information is prominently displayed and accessible in the More panel. 
-* FLOOR PLANS: Competitors will never get lost at Harvard. They can use floor maps designed by HUSO to navigate through the Science Center, Harvard Hall, and more. 
-* CONTACT: Competitors can easily reach out to HUSO with from within the app using emails that are automatically half-written for the user. 
+* FLOOR PLANS: Competitors will never get lost at Harvard. They can use floor maps designed by GGSO to navigate through the Science Center, Harvard Hall, and more. 
+* CONTACT: Competitors can easily reach out to GGSO with from within the app using emails that are automatically half-written for the user. 
 * ARBITRATION: Competitors can review arbitration protocols and forms and help get their coach involved.  
-* WEBSITE: HUSO's website and files are accessible from within the app. 
+* WEBSITE: GGSO's website and files are accessible from within the app. 
 * RESULTS: Users can be the first to find out how their team compared with the competition. 
 * VECTOR ART: <img src="/Images/logo.jpg" alt="HUSO Logo" width="30"/> The app showcases the newly designed logo that acts as the icon for the app.
 
